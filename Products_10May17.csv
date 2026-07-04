@@ -1,0 +1,21 @@
+user_ID,user_full_name,user_email,user_name,user_password,secret_key,user_role,user_level,location,department_id,store_id,warehouse_id,user_account_status,user_last_login,user_created,user_last_login_IP,user_last_modified,created_by,approved_by_hr
+1,Superadmina,super@sequester.com,superuser@sequester.com,8451ba8a14d79753d34cb33b51ba46b4b025eb81,e40abbaa259599d3b5e4a9550e1d8b0f0ee234ec,1,1,8,3,8,4,1,"2017-05-10 10:50:33",0000-00-00,103.21.53.102,"2017-04-06 07:28:58",,1
+46,"om patel",om@gmail.com,ompatel,06b887ac5844994acbfd57ddf745cedbb497e46e,,28,2,14,27,8,4,1,"2017-05-05 04:57:30",2017-04-06,,"2017-05-05 10:27:30",1,0
+48,"Manish Sharma",smart.intensions@gmail.com,Maniratnam,46b4416f87798b3dee10bdacd307b1654b145117,,28,2,14,31,2,0,1,"2017-04-07 14:25:30",2017-04-07,,"2017-04-07 07:55:30",1,0
+49,"chetna ",chetna@gmail.com,"chetna 12",7c4a8d09ca3762af61e59520943dc26494f8941b,,29,2,14,"27,22",0,0,1,"2017-04-12 12:22:14",2017-04-08,103.21.53.102,"2017-04-12 11:49:37",1,0
+50,Manish,account@gmail.com,manish@gmail.com,23bd78911f421cef9f94d7a1dcf30e4b3c841a9d,,43,2,17,32,0,0,1,"2017-04-14 09:34:56",2017-04-08,,"2017-04-14 03:04:56",1,0
+51,swati,swati@gmail.com,swati,7c4a8d09ca3762af61e59520943dc26494f8941b,,37,2,9,27,0,0,1,"2017-04-08 10:30:21",2017-04-08,,"2017-04-08 04:00:21",1,0
+52,"neha ",neha@gmail.com,neha@gmail.com,7c4a8d09ca3762af61e59520943dc26494f8941b,,43,2,17,22,1,0,1,"2017-04-12 12:39:49",2017-04-12,103.21.53.102,"2017-04-12 11:59:52",1,1
+54,"priya sharma",priyasharma@gmail.com,priya.sharma,7c4a8d09ca3762af61e59520943dc26494f8941b,,29,2,25,"31,27",0,0,1,"2017-04-13 11:52:34",2017-04-13,,"2017-04-13 05:22:34",1,0
+55,"gaurav hindka",gauravhindka@gmail.com,gaurav,7c4a8d09ca3762af61e59520943dc26494f8941b,,45,2,30,31,1,0,1,"2017-04-14 11:51:15",2017-04-13,,"2017-04-14 05:21:15",1,0
+57,"ayushi joshi",ayushi@gmail.com,ayushi1,7c4a8d09ca3762af61e59520943dc26494f8941b,,45,2,25,35,0,0,1,"2017-04-15 06:18:11",2017-04-15,,"2017-04-15 11:48:11",1,0
+58,kalpana,kalpna@gmail.com,kalpana12,7c4a8d09ca3762af61e59520943dc26494f8941b,,45,2,17,31,0,0,1,"2017-04-17 09:00:47",2017-04-17,,"2017-04-17 02:30:47",1,0
+62,pradeep@gmail.comc,pradeep@gmail.comc,pradeep@gmail.comc,6b456cc831e69ce6c0823e2383a5c47aecda73fa,,28,2,14,27,0,0,1,"2017-04-19 05:55:34",2017-04-19,,"2017-04-19 11:25:34",1,1
+63,"Jyoti sharma",jyoti.sharma@yahoo.com,jyoti.sharma@yahoo.com,b51fd41b8816b568645634da1767837fd220ab93,,28,2,36,31,0,0,1,"2017-04-19 07:01:08",2017-04-19,,"2017-04-19 12:31:08",1,0
+64,pradeep,pradeep@gmail.com,pradeep,6edf8b2bd1b6e03a535504401e6969c850269632,,40,2,14,35,0,0,1,"2017-04-25 13:39:37",2017-04-25,,"2017-04-25 07:09:37",1,1
+65,pradeep1@gmail.com,pradeep1@gmail.com,pradeep1@gmail.com,18c1ebc154ac7d44b3a99f697c5fe9435cf13288,,40,2,14,27,0,0,1,"2017-04-25 13:41:33",2017-04-25,,"2017-04-25 07:11:33",1,1
+66,om,omHraprove@gmail.com,om123@gmail.com,c6a445a74bd63b741ebfecac28aed8b8cb682a40,,49,4,25,35,1,0,1,"2017-04-26 06:07:07",2017-04-26,103.21.53.102,"2017-04-26 11:37:07",1,0
+67,pooja@gmail.com,pooja@gmail.com,pooja@gmail.com,3ad068326de13bed7cab06b9f0c2a29e14cc402f,,49,4,14,32,9,0,1,"2017-04-26 06:41:04",2017-04-26,,"2017-04-26 12:11:04",1,1
+68,hr@pakiza.com,hr@pakiza.com,hr@pakiza.com,348ff1d33e9df5cbfa4ce629272c83606fbb4b41,,28,3,14,26,9,0,1,"2017-04-26 12:18:12",2017-04-26,103.21.53.102,"2017-04-26 12:14:04",1,1
+69,Manoj,manoj.infowind@gmail.com,manoj,8cb2237d0679ca88db6464eac60da96345513964,a7531add505e1fefbf7f5c2f27a051e29a6ae4b5,50,3,40,31,0,0,1,"2017-05-01 06:08:12",2017-05-01,103.21.53.102,"2017-05-01 06:06:49",1,0
+70,salesmy@gmail.com,salesmy@gmail.com,salesmy@gmail.com,bdadbe0dcabba497ca668b5ff9517d257e839076,,51,3,14,22,1,0,1,"2017-05-05 11:29:54",2017-05-05,103.21.53.102,"2017-05-05 11:28:16",1,1

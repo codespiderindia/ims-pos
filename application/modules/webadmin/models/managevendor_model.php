@@ -1,0 +1,96 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Managevendor_model extends CI_Model {
+
+	function __construct(){
+	
+		parent::__construct();
+		$this->load->library('email');
+	}
+
+ 	function addVendor($data){
+		$this->db->insert('vendor',$data);
+		$user_ID=$this->db->insert_id();
+	}
+	
+	function addVendorBankDetails($data1){
+		$this->db->insert('vendor_bank_details',$data1);
+		$user_ID=$this->db->insert_id();
+	}
+
+  public function getAllVendor($comp_code){
+		$this->db->select('*');
+		$this->db->where(array('comp_code'=>$comp_code));
+		$this->db->from('vendor');
+		$query = $this->db->get();
+		return $query->result();
+  }
+  public function getVendorInfoByID($vendorID){
+	$query = $this->db->get_where('vendor', array('vendor_id' => $vendorID));
+		if($query->num_rows() > 0)
+			return $query->row();
+		else
+			return FALSE;
+  }
+  
+  public function getVendorBankInfoByID($vendorID){
+	$query = $this->db->order_by('id', 'ASC')->get_where('vendor_bank_details', array('vendor_id' => $vendorID));
+		if($query->num_rows() > 0)
+			return $query->result();
+		else
+			return FALSE;
+  }
+  
+  
+  
+  public function updateVendor($vendorID,$data){
+  	$this->db->where('vendor_id',$vendorID);
+	$this->db->update('vendor',$data);
+  }
+  
+   public function oldVendorBankDetails($vendorID){
+  	$this->db->where('vendor_id', $vendorID);
+	$this->db->delete('vendor_bank_details');
+  }
+ 
+ public function deleteVendor($vendorID){
+	$this->db->where('vendor_id', $vendorID);
+	$this->db->delete('vendor');
+ }
+ 
+ //Status ChangeFor User Status
+ public function changeVendorStatus($vendorID,$data){
+ 	$this->db->where('vendor_id',$vendorID);
+	$this->db->update('vendor',$data);
+	//echo $this->db->last_query();
+ }
+ 
+ public function changePassword($vendorID)
+ {
+	
+		$this->db->where('vendor_id', $vendorID);
+		$this->db->where('password', sha1($this->input->post('password')));
+		//$this->db->where('cpassword', $this->input->post('cpassword'));
+		$query = $this->db->get('vendor');
+		if($query->num_rows() == 1){
+			$this->db->where('vendor_id', $vendorID);
+			$this->db->update('vendor', array('password' => sha1($this->input->post('npassword')),'cpassword' => $this->input->post('cpassword')));
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	
+ }
+ 
+ public function checkEmailExist($email)
+ {
+		$query = $this->db->get_where('vendor', array('email' => $email));
+		if($query->num_rows() > 0)
+		{
+			echo "Email Already Exists";
+		}else{
+			echo "true";
+		}
+ }
+ 
+}

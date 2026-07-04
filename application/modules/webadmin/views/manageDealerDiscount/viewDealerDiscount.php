@@ -1,0 +1,176 @@
+<?php $this->load->view('include/layout_header'); ?>
+
+<?php $uinfo = $this->session->userdata('webadmin_session_info'); ?>
+
+<div class="page-content">
+   <div class="page-header position-relative">
+      <h1 class="headingThemeColor"><?php echo $heading; ?></h1>
+      <?php if($this->session->flashdata('error_msg')): ?>
+      <div class="alert alert-error">
+         <button type="button" class="close" data-dismiss="alert">
+         <i class="icon-remove"></i>										
+         </button>
+         <strong>
+         <i class="icon-remove"></i>
+         Error!										
+         </strong>
+         <?php echo $this->session->flashdata('error_msg'); ?>
+         <br />
+      </div>
+      <?php endif; ?>
+      <?php if($this->session->flashdata('success_msg')): ?>
+      <div class="alert alert-block alert-success ">
+         <button type="button" class="close" data-dismiss="alert">
+         <i class="icon-remove"></i>										
+         </button>
+         <p>
+            <strong>
+            <i class="icon-ok"></i>
+            Done!											
+            </strong>
+            <?php echo $this->session->flashdata('success_msg'); ?>										
+         </p>
+      </div>
+      <?php endif; ?>
+	  
+	  <a href="<?php echo site_url()."webadmin/managedealerdiscount/addDiscount";?>">
+	  <button class="btn btn-info buttonThemeColor" type="submit" style="float:right;margin:15px 0 6px;">
+		<i class="icon-ok bigger-110"></i>
+		Add Discount
+	  </button>
+	  </a>
+	  
+   </div>
+   <!--/.page-header-->
+   <div class="row-fluid">
+      <div class="span12">
+         <!--PAGE CONTENT BEGINS-->
+         <div class="row-fluid">
+            <div class="span12">
+               <?php
+				  $ctr=1;
+                  if(isset($dealers) && !empty($dealers)){
+                  ?>
+               <div class="table-header tableThemeColor">Results for Discount on Products</div>
+               <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                  <thead>
+                     <tr>
+                        <th class="center">S.No.</th>
+                        <th>Product Name</th>
+                        <th>SKU</th>
+                        <th>Batch Number</th>
+                        <th>Dealer Name</th>
+                        <th>Discount Price</th>
+                        <th>Created By</th>
+                        <th>Created Date</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <?php 
+                      //  $permission_array = checkPermissionByUserRole($uinfo['user_role'],17);
+                        foreach($dealers as $dealerss){
+                      //  if($uinfo['user_level']<$offer->user_level || $uinfo['user_level']==1){
+						?>
+                     <tr>
+                        <td class="center"><?php echo $ctr; ?></td>
+                        <td><?php echo get_product_name_by_ID($dealerss->master_product_id); ?></td>
+                        <td><?php echo $dealerss->product_id; ?></td>
+                        <td><?php echo $dealerss->batch_number; ?></td>
+                        <td><?php echo get_dealer_name_by_ID($dealerss->dealer_id); ?></td>
+                        <td><?php echo $dealerss->price; ?></td>
+                        <td><?php echo get_user_name_by_user_ID($dealerss->created_by); ?></td>
+                        <td><?php echo $dealerss->created_date; ?></td>
+					
+                     </tr>
+                     <?php  $ctr++; }?>
+                  </tbody>
+               </table>
+               <?php
+                  }else{ 
+                  echo '<div class="table-header">No Record Founds..!!!</div>';
+                  }		
+                  ?>
+            </div>
+            <!--/span-->
+         </div>
+         <!--/row-->
+         <!--PAGE CONTENT ENDS-->
+      </div>
+      <!--/.span-->
+   </div>
+   <!--/.row-fluid-->
+</div>
+<!--/.page-content-->
+<?php $this->load->view('include/layout_footer');?>
+<script>
+   $(function(){
+   		$(".delBtn").on(ace.click_event, function() {
+   			var del_loc=this.href;
+   			bootbox.confirm("Are you sure you want to delete this record?", function(result) {
+   				if(result) {
+   					window.location.href=del_loc;
+   					//bootbox.alert("You are sure!");
+   				}
+   			});
+   			
+   			return false;
+   		});
+		
+		
+		$( ".ace-switch-3" ).change(function() {
+   			var change_status_to=0;
+   			if($(this).is(":checked")) {
+   			change_status_to=1;	
+   			}
+   			
+   			ch=$(this).attr('id').split('status_switch_');
+   			var url="<?php echo site_url();?>webadmin/manageoffer/changeOfferStatus";
+   			$.ajax({
+   			url: url,
+   			type:'GET',
+   			data:"status="+change_status_to+"&id="+ch[1],
+   			success: function(data){
+   			
+   				//alert(data);
+   			}
+   			});
+   			
+   		});
+		
+   		
+   	    <!--jQuery Table//Start-->
+   		var oTable1 = $('#sample-table-2').dataTable( {
+   		"aoColumns": [
+   	      { "bSortable": false },
+   	      null, null,null, null,null, null, null,
+   		] } );
+   		
+   		
+   		$('table th input:checkbox').on('click' , function(){
+   			var that = this;
+   			$(this).closest('table').find('tr > td:first-child input:checkbox')
+   			.each(function(){
+   				this.checked = that.checked;
+   				$(this).closest('tr').toggleClass('selected');
+   			});
+   		});
+   		
+   		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+   		function tooltip_placement(context, source) {
+   			var $source = $(source);
+   			var $parent = $source.closest('table')
+   			var off1 = $parent.offset();
+   			var w1 = $parent.width();
+   	
+   			var off2 = $source.offset();
+   			var w2 = $source.width();
+   	
+   			if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+   			return 'left';
+   		}
+   	<!--jQuery Table//End-->
+   
+   });
+</script>
+</body>
+</html>
